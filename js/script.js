@@ -6,6 +6,10 @@ function GetPageHeight() {
         document.documentElement.offsetHeight);
 }
 
+function clamp(num, min, max) {
+    return Math.min(Math.max(num, min), max);
+}
+
 function WindowScrollNormalPosition() {
     return window.scrollY / (GetPageHeight() - window.innerHeight);
 }
@@ -14,6 +18,16 @@ function lerp(start, end, amt) {
     return (1 - amt) * start + amt * end
 }
 
+function RectNormalPositionOnScreen(rectY, rectHeight, screenHeight) {
+    let start = screenHeight;
+    let end = -rectHeight;
+
+    //NOTE: (x-min)/(max-min)
+    let result = (rectY - start) / (end - start);
+
+    return result;
+
+}
 
 function page_init(lib){
     console.log(lib);
@@ -21,6 +35,9 @@ function page_init(lib){
     let _this = stage.children[0];
     let page = _this.page;
     console.log(page);
+
+    // let postPolice = page.post_police;
+    // postPolice.gotoAndStop(0);
 
     function calcScrollEnd() {
         return scrollStart - (page.nominalBounds.height) + (canvas.clientHeight) - (2 * padding);
@@ -50,6 +67,13 @@ function page_init(lib){
         let currentScroll = WindowScrollNormalPosition();
 
         page.y = lerp(scrollStart, scrollEnd, currentScroll);
+
+        //hard code paralax on objects
+
+        // let paralaxScroll = RectNormalPositionOnScreen(postPolice.localToGlobal(0,0).y, postPolice.nominalBounds.height, canvas.clientHeight);
+        // let paralaxCurrentFrame = clamp(paralaxScroll * (postPolice.totalFrames - 1), 0, postPolice.totalFrames - 1);
+        // postPolice.gotoAndStop(paralaxCurrentFrame);
+
 
     }
 
