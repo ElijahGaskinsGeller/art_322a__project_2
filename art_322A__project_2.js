@@ -562,14 +562,14 @@ if (reversed == null) { reversed = false; }
 	// Layer_1
 	this.page = new lib.page();
 	this.page.name = "page";
-	this.page.setTransform(511.25,725,1,1,0,0,0,500,675);
+	this.page.setTransform(511.25,1181.95,1,1,0,0,0,500,675);
 
 	this.timeline.addTween(cjs.Tween.get(this.page).wait(1));
 
 	this._renderFirstFrame();
 
 }).prototype = p = new lib.AnMovieClip();
-p.nominalBounds = new cjs.Rectangle(138.8,434,1357.9,2879.6);
+p.nominalBounds = new cjs.Rectangle(138.8,891,1357.9,2879.5);
 // library properties:
 lib.properties = {
 	id: 'F09F6349E80CCB41AF97CF524489CFD5',
