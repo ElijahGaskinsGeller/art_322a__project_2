@@ -48,6 +48,23 @@ function page_init(lib){
     let scrollStart = page.y + padding;
     let scrollEnd = calcScrollEnd();
 
+    let car = page.car;
+    let watch_0 = page.watch_0;
+    let watch_1 = page.watch_1;
+    let cop = page.cop;
+    let ring = page.ring;
+    let flag = page.flag;
+    let hand = page.hand;
+    let eye = page.eye;
+
+    let carStart = car.y;
+    let watch0Start = watch_0.y;
+    let watch1Start = watch_1.y;
+    let copStart = cop.y;
+    let ringStart = ring.y;
+    let flagStart = flag.y;
+    let handStart = hand.y;
+    let eyeStart = eye.y;
 
     function onResize(e){
         let stageRatio = lib.properties.height / lib.properties.width;
@@ -67,6 +84,15 @@ function page_init(lib){
         let currentScroll = WindowScrollNormalPosition();
 
         page.y = lerp(scrollStart, scrollEnd, currentScroll);
+
+        car.y = carStart + lerp(0, -2000, currentScroll);
+        watch_0.y = watch0Start + lerp(0, 1000, currentScroll);
+        watch_1.y = watch1Start + lerp(0, -250, currentScroll);
+        cop.y = copStart + lerp(0, -1750, currentScroll);
+        ring.y = ringStart + lerp(0, 750, currentScroll);
+        flag.y = flagStart + lerp(0, -2250, currentScroll);
+        hand.y = handStart + lerp(0, -250, currentScroll);
+        eye.y = eyeStart + lerp(-500, 0, currentScroll);
 
         //hard code paralax on objects
 
