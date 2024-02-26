@@ -84,7 +84,7 @@ function page_init(lib){
 
         page.y = lerp(scrollStart, scrollEnd, currentScroll);
 
-        car.y = carStart + lerp(0, -2000, currentScroll);
+        car.y = carStart + lerp(750, -2000, currentScroll);
         watch_0.y = watch0Start + lerp(0, 1000, currentScroll);
         watch_1.y = watch1Start + lerp(0, -250, currentScroll);
         cop.y = copStart + lerp(0, -1750, currentScroll);
